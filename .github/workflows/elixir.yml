@@ -9,16 +9,16 @@ on:
 jobs:
   build:
 
-    name: Build
+    name: Build and test
     runs-on: ubuntu-20.04
 
     steps:
     - uses: actions/checkout@v2
     - name: Set up Elixir
       uses: actions/setup-elixir@v1
-      with:          
-          otp-version: '22.2'
-          elixir-version: '1.9.4'
+      with:
+        elixir-version: '1.10.3' # Define the elixir version [required]
+        otp-version: '22.3' # Define the OTP version [required]
     - name: Restore dependencies cache
       uses: actions/cache@v2
       with:
