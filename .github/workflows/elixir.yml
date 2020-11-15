@@ -33,6 +33,7 @@ jobs:
       run: mix test
     - name: Prepare release
       run: |
+        export SECRET_KEY_BASE=${SECRET_KEY_BASE}
         mix compile
         yarn --cwd assets deploy
         mix phx.digest
