@@ -21,6 +21,7 @@ config :learning_ec2_1, LearningEc21Web.Endpoint,
     port: 80,
     transport_options: [socket_opts: [:inet6]]
   ],
+  url: [host: "learning-ec2-1.bower-dev.co.uk/", port: 80],
   secret_key_base: secret_key_base
 
 # Do not print debug messages in production
