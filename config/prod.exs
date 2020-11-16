@@ -18,10 +18,10 @@ secret_key_base =
 
 config :learning_ec2_1, LearningEc21Web.Endpoint,
   http: [
-    port: 4000,
+    port: 80,
     transport_options: [socket_opts: [:inet6]]
   ],
-  url: [host: "learning-ec2-1.bower-dev.co.uk", port: 4000],
+  url: [host: "localhost", port: 80],
   server: true,
   secret_key_base: secret_key_base
 
