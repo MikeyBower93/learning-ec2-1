@@ -39,7 +39,7 @@ jobs:
         npm run deploy --prefix ./assets
         mix phx.digest
         mix release
-        tar -czvf build.tar.gz -C _build/prod/rel/learning_ec2_1 .
+        tar -czvf build.tar.gz -C _build .
       env:
         MIX_ENV: prod
     - name: Store build
