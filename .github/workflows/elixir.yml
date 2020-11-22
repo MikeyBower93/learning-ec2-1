@@ -40,6 +40,7 @@ jobs:
         mix phx.digest
         mix release 
         export build_number=$(_build/prod/rel/learning_ec2_1/bin/learning_ec2_1 version | cut -d ' ' -f2)
+        echo "build_number=${build_number} >> $GITHUB_ENV"
         tar -czvf ${build_number}.tar.gz -C _build .
         echo "New build at ${build_number}"
       env:
