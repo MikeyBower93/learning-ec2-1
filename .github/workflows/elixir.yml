@@ -40,18 +40,18 @@ jobs:
         mix phx.digest
         mix release 
         build_number=$(_build/prod/rel/learning_ec2_1/bin/learning_ec2_1 version | cut -d ' ' -f2)
-        tar -czvf ${build_number}.tar.gz -C _build .
+        tar -czvf "${build_number}.tar.gz" -C _build .
       env:
         MIX_ENV: prod
     - name: Store build
       uses: actions/upload-artifact@v2
       with:
-        name: ${build_number}.tar.gz
-        path: ${build_number}.tar.gz
+        name: "${build_number}.tar.gz"
+        path: "${build_number}.tar.gz"
     - name: S3 Sync
       uses: ItsKarma/aws-cli@v1.70.0
       with:
-        args: s3 cp ${build_number}.tar.gz s3://learning-ec2-1-deployments
+        args: s3 cp "${build_number}.tar.gz" s3://learning-ec2-1-deployments
       env:
         AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
         AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
