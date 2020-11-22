@@ -51,4 +51,4 @@ jobs:
         aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
         aws-region: eu-west-2
     - name: Store build in s3
-      run: s3 cp ${build_number}.tar.gz s3://learning-ec2-1-deployments
+      run: aws s3 cp ${build_number}.tar.gz s3://learning-ec2-1-deployments
