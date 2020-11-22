@@ -33,7 +33,7 @@ jobs:
       run: mix test
     - name: Prepare release
       run: |
-        export SECRET_KEY_BASE=${SECRET_KEY_BASE}
+        export SECRET_KEY_BASE=${{ SECRET_KEY_BASE }}
         mix compile
         npm install --prefix ./assets
         npm run deploy --prefix ./assets
@@ -47,3 +47,11 @@ jobs:
       with:
         name: build.tar.gz
         path: build.tar.gz
+    - name: S3 Sync
+      uses: ItsKarma/aws-cli@v1.70.0
+      with:
+        args: s3 cp --delete build.tar.gz s3://learning-ec2-1-deployments
+      env:
+        AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+        AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+        AWS_DEFAULT_REGION: "eu-west-2"
