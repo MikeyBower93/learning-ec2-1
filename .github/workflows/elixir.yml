@@ -44,11 +44,11 @@ jobs:
         echo "New build at ${build_number}"
       env:
         MIX_ENV: prod
-    - name: Store build in s3
-      uses: ItsKarma/aws-cli@v1.70.0
+    - name: Configure AWS credentials
+      uses: aws-actions/configure-aws-credentials@v1
       with:
-        args: s3 cp ${build_number}.tar.gz s3://learning-ec2-1-deployments
-      env:
-        AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
-        AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-        AWS_DEFAULT_REGION: "eu-west-2"
+        aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+        aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+        aws-region: eu-west-2
+    - name: Store build in s3
+      run: s3 cp ${build_number}.tar.gz s3://learning-ec2-1-deployments
