@@ -50,7 +50,7 @@ jobs:
     - name: S3 Sync
       uses: ItsKarma/aws-cli@v1.70.0
       with:
-        args: s3 cp --delete build.tar.gz s3://learning-ec2-1-deployments
+        args: s3 cp build.tar.gz s3://learning-ec2-1-deployments
       env:
         AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
         AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
