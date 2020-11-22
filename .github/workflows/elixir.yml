@@ -44,6 +44,7 @@ jobs:
         echo "New build at ${build_number}"
       env:
         MIX_ENV: prod
+    -name: Store build in s3
       uses: ItsKarma/aws-cli@v1.70.0
       with:
         args: s3 cp ${build_number}.tar.gz s3://learning-ec2-1-deployments
