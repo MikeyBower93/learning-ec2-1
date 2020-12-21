@@ -37,7 +37,7 @@ jobs:
         aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
         aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
         aws-region: eu-west-2
-    - name: Prepare release
+    - name: Prepare and store release
       run: |
         export SECRET_KEY_BASE=${{ secrets.SECRET_KEY_BASE }}
         mix compile
@@ -50,5 +50,13 @@ jobs:
       
         tar -czvf ${build_number}.tar.gz -C _build . 
         aws s3 cp ${build_number}.tar.gz s3://learning-ec2-1-deployments
+
+        aws ssm send-command \
+          --document-name "AWS-RunShellScript" \
+          --targets Key=tag:Name,Values=learning-ec2-1 \
+          --parameters commands=[
+              ./deploy.sh
+            "] \
+          --output json
       env:
         MIX_ENV: prod
