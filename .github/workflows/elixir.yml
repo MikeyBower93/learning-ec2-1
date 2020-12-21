@@ -55,7 +55,9 @@ jobs:
           --document-name "AWS-RunShellScript" \
           --targets Key=tag:Name,Values=learning-ec2-1 \
           --parameters commands=["
-              ./deploy.sh
+              cd /home/ubuntu;
+              sudo su - ubuntu;
+              sudo ./deploy.sh
             "] \
           --output json
       env:
