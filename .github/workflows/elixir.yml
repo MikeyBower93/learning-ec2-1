@@ -54,7 +54,7 @@ jobs:
         aws ssm send-command \
           --document-name "AWS-RunShellScript" \
           --targets Key=tag:Name,Values=learning-ec2-1 \
-          --parameters commands=[
+          --parameters commands=["
               ./deploy.sh
             "] \
           --output json
