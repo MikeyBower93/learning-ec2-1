@@ -3,16 +3,23 @@ defmodule LearningEc21Web.LiveView.Clocks do
 
   def render(assigns) do
     ~L"""
-    <div style="display: flex; flex-direction: row; justify-content: space-evenly; flex-wrap: wrap;">
+    <div style="display: flex;
+                flex-direction: row;
+                justify-content: space-evenly;
+                flex-wrap: wrap;">
       <%= for country_date_time <- @country_date_times do %>
-        <div class="card" style="margin: 5rem 5rem 5rem 5rem;">
-          <div class="card-body">
-            <img src="https://www.countryflags.io/<%= country_date_time.flag_url_prefix %>/flat/64.png">
-            <h5 class="card-title"><%= country_date_time.location %></h5>
-            <p class="card-text">
-              <%= country_date_time.date %>
-            </p>
-          </div>
+        <div style="margin: 50px 50px 50px 50px;
+                    width: 200px;
+                    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+                    transition: 0.3s;
+                    border-radius: 5px; /* 5px rounded corners */
+                    padding: 15px 15px 15px 15px;
+                    height: 200px;">
+          <img src="https://www.countryflags.io/<%= country_date_time.flag_url_prefix %>/flat/64.png">
+          <h3><%= country_date_time.location %></h5>
+          <span>
+            <%= country_date_time.date %>
+          </p>
         </div>
       <% end %>
     </div>
