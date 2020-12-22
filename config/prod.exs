@@ -21,6 +21,7 @@ config :learning_ec2_1, LearningEc21Web.Endpoint,
     port: 80,
     transport_options: [socket_opts: [:inet6]]
   ],
+  check_origin: ["//learning-ec2-1.bower-dev.co.uk"],
   url: [host: "localhost", port: 80],
   server: true,
   secret_key_base: secret_key_base
