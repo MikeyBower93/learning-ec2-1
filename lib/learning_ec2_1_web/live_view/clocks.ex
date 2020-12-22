@@ -5,7 +5,7 @@ defmodule LearningEc21Web.LiveView.Clocks do
   def render(assigns) do
     ~L"""
     <form phx-change="search" style="margin: 50px 50px 50px 50px;">
-      <%= text_input :location_search, :query, autofocus: true, placeholder: "Search a location...", "phx-debounce": "300" %>
+      <%= text_input :location_search, :query, autofocus: true, placeholder: "Search a location...", "phx-debounce": "300", value: get_search_from_assigns(assigns) %>
     </form>
     <div style="display: flex;
                 flex-direction: row;
@@ -39,7 +39,7 @@ defmodule LearningEc21Web.LiveView.Clocks do
   def handle_info(:update, socket) do
     Process.send_after(self(), :update, 500)
 
-    search = get_search_from_socket(socket)
+    search = get_search_from_assigns(socket.assigns)
 
     country_times =
       get_country_date_times()
@@ -50,8 +50,8 @@ defmodule LearningEc21Web.LiveView.Clocks do
     {:noreply, assign(socket, :country_date_times, country_times)}
   end
 
-  defp get_search_from_socket(%{assigns: %{location_search: location_search}}), do: location_search
-  defp get_search_from_socket(_), do: ""
+  defp get_search_from_assigns(%{location_search: location_search}), do: location_search
+  defp get_search_from_assigns(_), do: ""
 
   def handle_event("search", %{"location_search" => %{"query" => query}}, socket) do
     {:noreply, assign(socket, :location_search, query)}
