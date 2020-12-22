@@ -24,6 +24,8 @@ defmodule LearningEc21Web do
       import Plug.Conn
       import LearningEc21Web.Gettext
       alias LearningEc21Web.Router.Helpers, as: Routes
+
+      import Phoenix.LiveView.Controller
     end
   end
 
@@ -39,6 +41,8 @@ defmodule LearningEc21Web do
 
       # Include shared imports and aliases for views
       unquote(view_helpers())
+
+      import Phoenix.LiveView.Helpers
     end
   end
 
@@ -48,6 +52,8 @@ defmodule LearningEc21Web do
 
       import Plug.Conn
       import Phoenix.Controller
+
+      import Phoenix.LiveView.Router
     end
   end
 
