@@ -9,7 +9,7 @@ on:
 jobs:
   build:
 
-    name: Build and test
+    name: Build, test and deploy
     runs-on: ubuntu-latest
 
     steps:
@@ -37,7 +37,7 @@ jobs:
         aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
         aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
         aws-region: eu-west-2
-    - name: Prepare and store release
+    - name: Prepare, store and deploy release
       run: |
         export SECRET_KEY_BASE=${{ secrets.SECRET_KEY_BASE }}
         mix compile
@@ -57,7 +57,7 @@ jobs:
           --parameters commands=["
               cd /home/ubuntu;
               sudo su - ubuntu;
-              sudo ./deploy.sh
+              sudo ./deploy.sh ${build_number}
             "] \
           --output json
       env:
