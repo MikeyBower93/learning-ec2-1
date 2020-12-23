@@ -34,3 +34,46 @@
   display: block;
   margin: -1rem 0 2rem;
 }
+.location-search { 
+  margin-left: 50px;
+  margin-right: 50px; 
+  margin-top: 50px;
+}
+.timezone-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+} 
+.timezone-card {
+  margin: 5px 5px 5px 5px;
+  width: 200px;
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+  transition: 0.3s;
+  border-radius: 5px; /* 5px rounded corners */
+  padding: 15px 15px 15px 15px;
+  height: 200px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+}
+.country-flag {
+  width: 64px;
+}
+/* small breakpoint */
+@media (min-width: 1000px) { 
+  .timezone-card {
+    margin: 50px 50px 50px 50px;
+    width: 200px;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    transition: 0.3s;
+    border-radius: 5px; /* 5px rounded corners */
+    padding: 15px 15px 15px 15px;
+    height: 200px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+  }
+} 
