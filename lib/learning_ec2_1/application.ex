@@ -13,7 +13,7 @@ defmodule LearningEc21.Application do
       {Phoenix.PubSub, name: LearningEc21.PubSub},
       # Start the Endpoint (http/https)
       LearningEc21Web.Endpoint,
-      {LearningEc21.CapitalTimeZones, %{}}
+      {LearningEc21.TimeZones, %{}}
       # Start a worker by calling: LearningEc21.Worker.start_link(arg)
       # {LearningEc21.Worker, arg}
     ]

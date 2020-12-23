@@ -1,4 +1,4 @@
-defmodule LearningEc21.CapitalTimeZones do
+defmodule LearningEc21.TimeZones do
   use GenServer
 
   @init_time_zones [
@@ -1426,6 +1426,8 @@ defmodule LearningEc21.CapitalTimeZones do
     }
   ]
 
+  @update_period_in_milliseconds 500
+
   def start_link(args) do
     GenServer.start_link(__MODULE__, args, name: __MODULE__)
   end
@@ -1458,7 +1460,7 @@ defmodule LearningEc21.CapitalTimeZones do
   end
 
   defp schedule_work() do
-    Process.send_after(self(), :work, 500)
+    Process.send_after(self(), :work, @update_period_in_milliseconds)
   end
 
   defp append_current_time(time_zones) do

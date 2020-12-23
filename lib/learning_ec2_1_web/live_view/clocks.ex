@@ -4,7 +4,7 @@ defmodule LearningEc21Web.LiveView.Clocks do
 
   alias LearningEc21.TimeZones
 
-  @update_period_in_milliseconds 200
+  @update_period_in_milliseconds 500
 
   def render(assigns) do
     ~L"""
@@ -38,7 +38,7 @@ defmodule LearningEc21Web.LiveView.Clocks do
     location_search = get_search_from_params(params)
 
     location_times =
-      LearningEc21.CapitalTimeZones.fetch_time_zones()
+      TimeZones.fetch_time_zones()
       |> filter_time_zones(location_search)
 
     socket =
@@ -55,7 +55,7 @@ defmodule LearningEc21Web.LiveView.Clocks do
     location_search = get_search_from_assigns(socket.assigns)
 
     location_times =
-      LearningEc21.CapitalTimeZones.fetch_time_zones()
+      TimeZones.fetch_time_zones()
       |> filter_time_zones(location_search)
 
     {:noreply, assign(socket, :location_times, location_times)}
