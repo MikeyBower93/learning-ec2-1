@@ -43,8 +43,7 @@ defmodule LearningEc21.MixProject do
       {:jason, "~> 1.0"},
       {:plug_cowboy, "~> 2.0"},
       {:tzdata, "~> 1.0"},
-      {:calendar, "~> 1.0"},
-      {:tz_world, "~> 0.7.1"}
+      {:calendar, "~> 1.0"}
     ]
   end
 
