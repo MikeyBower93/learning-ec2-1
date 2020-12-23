@@ -18,7 +18,7 @@ defmodule LearningEc21.TimeZones do
       country: "Albania",
       flag_url: "https://restcountries.eu/data/alb.svg",
       location: "Tirana",
-      time_zone: "Europe/Tirane"
+      time_zone: "CET"
     },
     %{
       country: "Algeria",
@@ -48,7 +48,7 @@ defmodule LearningEc21.TimeZones do
       country: "Antigua and Barbuda",
       flag_url: "https://restcountries.eu/data/atg.svg",
       location: "Saint John's",
-      time_zone: "America/Antigua"
+      time_zone: "America/St_Johns"
     },
     %{
       country: "Argentina",
@@ -72,7 +72,7 @@ defmodule LearningEc21.TimeZones do
       country: "Australia",
       flag_url: "https://restcountries.eu/data/aus.svg",
       location: "Canberra",
-      time_zone: "Australia/Adelaide"
+      time_zone: "Australia/Sydney"
     },
     %{
       country: "Austria",
@@ -174,7 +174,7 @@ defmodule LearningEc21.TimeZones do
       country: "Brazil",
       flag_url: "https://restcountries.eu/data/bra.svg",
       location: "Brasília",
-      time_zone: "America/Cuiaba"
+      time_zone: "America/Sao_Paulo"
     },
     %{
       country: "British Indian Ocean Territory",
@@ -234,7 +234,7 @@ defmodule LearningEc21.TimeZones do
       country: "Canada",
       flag_url: "https://restcountries.eu/data/can.svg",
       location: "Ottawa",
-      time_zone: "America/Rankin_Inlet"
+      time_zone: "EST"
     },
     %{
       country: "Cabo Verde",
@@ -294,7 +294,7 @@ defmodule LearningEc21.TimeZones do
       country: "Congo (Democratic Republic of the)",
       flag_url: "https://restcountries.eu/data/cod.svg",
       location: "Kinshasa",
-      time_zone: "Africa/Lubumbashi"
+      time_zone: "Africa/Kinshasa"
     },
     %{
       country: "Cook Islands",
@@ -582,7 +582,7 @@ defmodule LearningEc21.TimeZones do
       country: "Indonesia",
       flag_url: "https://restcountries.eu/data/idn.svg",
       location: "Jakarta",
-      time_zone: "Asia/Makassar"
+      time_zone: "Asia/Jakarta"
     },
     %{
       country: "Côte d'Ivoire",
@@ -924,7 +924,7 @@ defmodule LearningEc21.TimeZones do
       country: "Norfolk Island",
       flag_url: "https://restcountries.eu/data/nfk.svg",
       location: "Kingston",
-      time_zone: "America/Jamaica"
+      time_zone: "Pacific/Norfolk"
     },
     %{
       country: "Korea (Democratic People's Republic of)",
@@ -1050,7 +1050,7 @@ defmodule LearningEc21.TimeZones do
       country: "Russian Federation",
       flag_url: "https://restcountries.eu/data/rus.svg",
       location: "Moscow",
-      time_zone: "Asia/Krasnoyarsk"
+      time_zone: "Europe/Moscow"
     },
     %{
       country: "Rwanda",
@@ -1134,7 +1134,7 @@ defmodule LearningEc21.TimeZones do
       country: "Seychelles",
       flag_url: "https://restcountries.eu/data/syc.svg",
       location: "Victoria",
-      time_zone: "Asia/Hong_Kong"
+      time_zone: "Indian/Mahe"
     },
     %{
       country: "Sierra Leone",
@@ -1362,7 +1362,7 @@ defmodule LearningEc21.TimeZones do
       country: "United States of America",
       flag_url: "https://restcountries.eu/data/usa.svg",
       location: "Washington, D.C.",
-      time_zone: "America/Chicago"
+      time_zone: "EST"
     },
     %{
       country: "Uruguay",

@@ -34,20 +34,27 @@
   display: block;
   margin: -1rem 0 2rem;
 }
-.location-search { 
-  margin-left: 50px;
-  margin-right: 50px; 
-  margin-top: 50px;
+.location-search {  
+  background-color: white;
+  position: fixed;
+  width: 100%;
+  bottom: 0;
+  padding: 50px 50px 50px 50px;
+  margin-bottom: 0;
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+  transition: 0.3s;
+  border-radius: 5px; /* 5px rounded corners */
 }
 .timezone-container {
   display: flex;
   flex-direction: row;
   justify-content: space-evenly;
   flex-wrap: wrap;
+  margin-bottom: 200px;
 } 
 .timezone-card {
   margin: 15px 15px 15px 15px;
-  width: 200px;
+  width: 300px;
   box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
   transition: 0.3s;
   border-radius: 5px; /* 5px rounded corners */
@@ -68,7 +75,7 @@
 @media (min-width: 1000px) { 
   .timezone-card {
     margin: 50px 50px 50px 50px;
-    width: 200px;
+    width: 300px;
     box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
     transition: 0.3s;
     border-radius: 5px; /* 5px rounded corners */
