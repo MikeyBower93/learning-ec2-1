@@ -4,7 +4,7 @@ defmodule LearningEc21Web.LiveView.Clocks do
 
   alias LearningEc21.TimeZones
 
-  @update_period_in_milliseconds 500
+  @update_period_in_milliseconds 200
 
   def render(assigns) do
     ~L"""
@@ -19,9 +19,10 @@ defmodule LearningEc21Web.LiveView.Clocks do
     <div class="timezone-container">
       <%= for location_time <- @location_times do %>
         <div class="timezone-card">
-          <img src="https://www.countryflags.io/<%= location_time.flag_url_prefix %>/flat/64.png"
+          <img src="<%= location_time.flag_url %>"
                class="country-flag">
-          <h3><%= location_time.location %></h5>
+          <h3 class="country-name"><b><%= location_time.country %></b></h3>
+          <h3><%= location_time.location %></h3>
           <span>
             <%= location_time.date %>
           </p>
@@ -36,7 +37,9 @@ defmodule LearningEc21Web.LiveView.Clocks do
 
     location_search = get_search_from_params(params)
 
-    location_times = TimeZones.get_location_times(location_search)
+    location_times =
+      LearningEc21.CapitalTimeZones.fetch_time_zones()
+      |> filter_time_zones(location_search)
 
     socket =
       socket
@@ -49,19 +52,14 @@ defmodule LearningEc21Web.LiveView.Clocks do
   def handle_info(:update, socket) do
     Process.send_after(self(), :update, @update_period_in_milliseconds)
 
+    location_search = get_search_from_assigns(socket.assigns)
+
     location_times =
-      socket.assigns
-      |> get_search_from_assigns()
-      |> TimeZones.get_location_times()
+      LearningEc21.CapitalTimeZones.fetch_time_zones()
+      |> filter_time_zones(location_search)
 
     {:noreply, assign(socket, :location_times, location_times)}
   end
-
-  defp get_search_from_params(%{"location_search" => location_search}), do: location_search
-  defp get_search_from_params(_), do: nil
-
-  defp get_search_from_assigns(%{location_search: location_search}), do: location_search
-  defp get_search_from_assigns(_), do: nil
 
   def handle_params(
     %{"location_search" => location_search},
@@ -77,4 +75,23 @@ defmodule LearningEc21Web.LiveView.Clocks do
     {:noreply, push_patch(socket, to: "/?location_search=#{query}")}
   end
   def handle_event(_, _, socket), do: {:noreply, socket}
+
+  defp get_search_from_params(%{"location_search" => location_search}), do: location_search
+  defp get_search_from_params(_), do: ""
+
+  defp get_search_from_assigns(%{location_search: location_search}), do: location_search
+  defp get_search_from_assigns(_), do: ""
+
+  defp filter_time_zones(time_zones, location_search) do
+    search_field =
+      location_search
+      |> String.downcase()
+      |> String.trim()
+
+    Enum.filter(time_zones,
+      fn time_zone ->
+        String.contains?(String.downcase(time_zone.location), search_field) or
+        String.contains?(String.downcase(time_zone.country), search_field)
+      end)
+  end
 end
