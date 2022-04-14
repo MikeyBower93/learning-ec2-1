@@ -1,5 +1,5 @@
-defmodule LearningEc21Web.LayoutViewTest do
-  use LearningEc21Web.ConnCase, async: true
+defmodule LiveClocksWeb.LayoutViewTest do
+  use LiveClocksWeb.ConnCase, async: true
 
   # When testing helpers, you may want to import Phoenix.HTML and
   # use functions such as safe_to_string() to convert the helper

@@ -1,12 +1,12 @@
-defmodule LearningEc21Web do
+defmodule LiveClocksWeb do
   @moduledoc """
   The entrypoint for defining your web interface, such
   as controllers, views, channels and so on.
 
   This can be used in your application as:
 
-      use LearningEc21Web, :controller
-      use LearningEc21Web, :view
+      use LiveClocksWeb, :controller
+      use LiveClocksWeb, :view
 
   The definitions below will be executed for every view,
   controller, etc, so keep them short and clean, focused
@@ -19,11 +19,11 @@ defmodule LearningEc21Web do
 
   def controller do
     quote do
-      use Phoenix.Controller, namespace: LearningEc21Web
+      use Phoenix.Controller, namespace: LiveClocksWeb
 
       import Plug.Conn
-      import LearningEc21Web.Gettext
-      alias LearningEc21Web.Router.Helpers, as: Routes
+      import LiveClocksWeb.Gettext
+      alias LiveClocksWeb.Router.Helpers, as: Routes
 
       import Phoenix.LiveView.Controller
     end
@@ -32,8 +32,8 @@ defmodule LearningEc21Web do
   def view do
     quote do
       use Phoenix.View,
-        root: "lib/learning_ec2_1_web/templates",
-        namespace: LearningEc21Web
+        root: "lib/live_clocks_web/templates",
+        namespace: LiveClocksWeb
 
       # Import convenience functions from controllers
       import Phoenix.Controller,
@@ -60,7 +60,7 @@ defmodule LearningEc21Web do
   def channel do
     quote do
       use Phoenix.Channel
-      import LearningEc21Web.Gettext
+      import LiveClocksWeb.Gettext
     end
   end
 
@@ -72,9 +72,9 @@ defmodule LearningEc21Web do
       # Import basic rendering functionality (render, render_layout, etc)
       import Phoenix.View
 
-      import LearningEc21Web.ErrorHelpers
-      import LearningEc21Web.Gettext
-      alias LearningEc21Web.Router.Helpers, as: Routes
+      import LiveClocksWeb.ErrorHelpers
+      import LiveClocksWeb.Gettext
+      alias LiveClocksWeb.Router.Helpers, as: Routes
     end
   end
 

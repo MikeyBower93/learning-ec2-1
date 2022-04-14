@@ -1,11 +1,11 @@
-defmodule LearningEc21.MixProject do
+defmodule LiveClocks.MixProject do
   use Mix.Project
 
   def project do
     [
-      app: :learning_ec2_1,
+      app: :live_clocks,
       version: "0.1.0",
-      elixir: "~> 1.10.3",
+      elixir: "~> 1.13.1",
       elixirc_paths: elixirc_paths(Mix.env()),
       compilers: [:phoenix, :gettext] ++ Mix.compilers(),
       start_permanent: Mix.env() == :prod,
@@ -19,7 +19,7 @@ defmodule LearningEc21.MixProject do
   # Type `mix help compile.app` for more information.
   def application do
     [
-      mod: {LearningEc21.Application, []},
+      mod: {LiveClocks.Application, []},
       extra_applications: [:logger, :runtime_tools]
     ]
   end
@@ -41,7 +41,7 @@ defmodule LearningEc21.MixProject do
       {:telemetry_poller, "~> 0.4"},
       {:gettext, "~> 0.11"},
       {:jason, "~> 1.0"},
-      {:plug_cowboy, "~> 2.0"},
+      {:plug_cowboy, "~> 2.5"},
       {:tzdata, "~> 1.0"},
       {:calendar, "~> 1.0"}
     ]

@@ -1,6 +1,6 @@
-defmodule LearningEc21 do
+defmodule LiveClocks do
   @moduledoc """
-  LearningEc21 keeps the contexts that define your domain
+  LiveClocks keeps the contexts that define your domain
   and business logic.
 
   Contexts are also responsible for managing your data, regardless

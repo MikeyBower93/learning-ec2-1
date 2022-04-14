@@ -6,7 +6,7 @@ use Mix.Config
 # The watchers configuration can be used to run external
 # watchers to your application. For example, we use it
 # with webpack to recompile .js and .css sources.
-config :learning_ec2_1, LearningEc21Web.Endpoint,
+config :live_clocks, LiveClocksWeb.Endpoint,
   http: [port: 4000],
   debug_errors: true,
   code_reloader: true,
@@ -46,13 +46,13 @@ config :learning_ec2_1, LearningEc21Web.Endpoint,
 # different ports.
 
 # Watch static and templates for browser reloading.
-config :learning_ec2_1, LearningEc21Web.Endpoint,
+config :live_clocks, LiveClocksWeb.Endpoint,
   live_reload: [
     patterns: [
       ~r"priv/static/.*(js|css|png|jpeg|jpg|gif|svg)$",
       ~r"priv/gettext/.*(po)$",
-      ~r"lib/learning_ec2_1_web/(live|views)/.*(ex)$",
-      ~r"lib/learning_ec2_1_web/templates/.*(eex)$"
+      ~r"lib/live_clocks_web/(live|views)/.*(ex)$",
+      ~r"lib/live_clocks_web/templates/.*(eex)$"
     ]
   ]
 

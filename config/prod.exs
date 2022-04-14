@@ -16,12 +16,12 @@ secret_key_base =
     You can generate one by calling: mix phx.gen.secret
     """
 
-config :learning_ec2_1, LearningEc21Web.Endpoint,
+config :live_clocks, LiveClocksWeb.Endpoint,
   http: [
     port: 80,
     transport_options: [socket_opts: [:inet6]]
   ],
-  check_origin: ["//learning-ec2-1.bower-dev.co.uk"],
+  check_origin: ["//live-clocks.bower-dev.co.uk"],
   url: [host: "localhost", port: 80],
   server: true,
   secret_key_base: secret_key_base
@@ -34,7 +34,7 @@ config :logger, level: :info
 # To get SSL working, you will need to add the `https` key
 # to the previous section and set your `:url` port to 443:
 #
-#     config :learning_ec2_1, LearningEc21Web.Endpoint,
+#     config :live_clocks, LiveClocksWeb.Endpoint,
 #       ...
 #       url: [host: "example.com", port: 443],
 #       https: [
@@ -58,7 +58,7 @@ config :logger, level: :info
 # We also recommend setting `force_ssl` in your endpoint, ensuring
 # no data is ever sent via http, always redirecting to https:
 #
-#     config :learning_ec2_1, LearningEc21Web.Endpoint,
+#     config :live_clocks, LiveClocksWeb.Endpoint,
 #       force_ssl: [hsts: true]
 #
 # Check `Plug.SSL` for all available options in `force_ssl`.

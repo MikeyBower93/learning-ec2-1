@@ -1,4 +1,4 @@
-defmodule LearningEc21Web.ErrorHelpers do
+defmodule LiveClocksWeb.ErrorHelpers do
   @moduledoc """
   Conveniences for translating and building error messages.
   """
@@ -39,9 +39,9 @@ defmodule LearningEc21Web.ErrorHelpers do
     # should be written to the errors.po file. The :count option is
     # set by Ecto and indicates we should also apply plural rules.
     if count = opts[:count] do
-      Gettext.dngettext(LearningEc21Web.Gettext, "errors", msg, msg, count, opts)
+      Gettext.dngettext(LiveClocksWeb.Gettext, "errors", msg, msg, count, opts)
     else
-      Gettext.dgettext(LearningEc21Web.Gettext, "errors", msg, opts)
+      Gettext.dgettext(LiveClocksWeb.Gettext, "errors", msg, opts)
     end
   end
 end

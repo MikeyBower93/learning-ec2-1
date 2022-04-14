@@ -20,7 +20,7 @@ erl_crash.dump
 *.ez
 
 # Ignore package tarball (built via "mix hex.build").
-learning_ec2_1-*.tar
+live_clocks-*.tar
 
 # If NPM crashes, it generates a log, let's ignore it too.
 npm-debug.log

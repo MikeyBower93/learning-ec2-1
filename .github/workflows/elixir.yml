@@ -46,14 +46,14 @@ jobs:
         mix phx.digest
         mix release 
         
-        export build_number=$(_build/prod/rel/learning_ec2_1/bin/learning_ec2_1 version | cut -d ' ' -f2)
+        export build_number=$(_build/prod/rel/live_clocks/bin/live_clocks version | cut -d ' ' -f2)
       
         tar -czvf ${build_number}.tar.gz -C _build . 
-        aws s3 cp ${build_number}.tar.gz s3://learning-ec2-1-deployments
+        aws s3 cp ${build_number}.tar.gz s3://live-clocks-deployments
 
         aws ssm send-command \
           --document-name "AWS-RunShellScript" \
-          --targets Key=tag:Name,Values=learning-ec2-1 \
+          --targets Key=tag:Name,Values=live-clocks \
           --parameters commands=["
               cd /home/ubuntu;
               sudo su - ubuntu;

@@ -8,11 +8,11 @@
 use Mix.Config
 
 # Configures the endpoint
-config :learning_ec2_1, LearningEc21Web.Endpoint,
+config :live_clocks, LiveClocksWeb.Endpoint,
   url: [host: "localhost"],
   secret_key_base: "OOn+NO3jadvpHqzSYZD7eH8SZffX1s/clL4lm+BYSGqiMU0Jt8C1Gi8svdQcVo+r",
-  render_errors: [view: LearningEc21Web.ErrorView, accepts: ~w(html json), layout: false],
-  pubsub_server: LearningEc21.PubSub,
+  render_errors: [view: LiveClocksWeb.ErrorView, accepts: ~w(html json), layout: false],
+  pubsub_server: LiveClocks.PubSub,
   live_view: [signing_salt: "GlXn3rHi"]
 
 # Configures Elixir's Logger

@@ -1,16 +1,16 @@
-defmodule LearningEc21Web.Endpoint do
-  use Phoenix.Endpoint, otp_app: :learning_ec2_1
+defmodule LiveClocksWeb.Endpoint do
+  use Phoenix.Endpoint, otp_app: :live_clocks
 
   # The session will be stored in the cookie and signed,
   # this means its contents can be read but not tampered with.
   # Set :encryption_salt if you would also like to encrypt it.
   @session_options [
     store: :cookie,
-    key: "_learning_ec2_1_key",
+    key: "_live_clocks_key",
     signing_salt: "IraJzrzr"
   ]
 
-  socket "/socket", LearningEc21Web.UserSocket,
+  socket "/socket", LiveClocksWeb.UserSocket,
     websocket: true,
     longpoll: false
 
@@ -22,7 +22,7 @@ defmodule LearningEc21Web.Endpoint do
   # when deploying your static files in production.
   plug Plug.Static,
     at: "/",
-    from: :learning_ec2_1,
+    from: :live_clocks,
     gzip: false,
     only: ~w(css fonts images js favicon.ico robots.txt)
 
@@ -45,5 +45,5 @@ defmodule LearningEc21Web.Endpoint do
   plug Plug.MethodOverride
   plug Plug.Head
   plug Plug.Session, @session_options
-  plug LearningEc21Web.Router
+  plug LiveClocksWeb.Router
 end

@@ -1,5 +1,5 @@
-defmodule LearningEc21Web.ErrorView do
-  use LearningEc21Web, :view
+defmodule LiveClocksWeb.ErrorView do
+  use LiveClocksWeb, :view
 
   # If you want to customize a particular status code
   # for a certain format, you may uncomment below.

@@ -1,8 +1,8 @@
-defmodule LearningEc21Web.LiveView.Clocks do
+defmodule LiveClocksWeb.LiveView.Clocks do
   use Phoenix.LiveView
   use Phoenix.HTML
 
-  alias LearningEc21.TimeZones
+  alias LiveClocks.TimeZones
 
   @update_period_in_milliseconds 500
 
@@ -19,8 +19,6 @@ defmodule LearningEc21Web.LiveView.Clocks do
     <div class="timezone-container">
       <%= for location_time <- @location_times do %>
         <div class="timezone-card">
-          <img src="<%= location_time.flag_url %>"
-               class="country-flag">
           <h3 class="country-name"><b><%= location_time.country %></b></h3>
           <h3><%= location_time.location %></h3>
           <span>
